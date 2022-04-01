@@ -54,3 +54,26 @@ function HabilitarConfirmacao () {
     }
 }
 
+function confirmarPedido () {
+    const nomePrato = document.querySelector(".clicado--prato h3").innerHTML; 
+    const nomeBebida = document.querySelector(".clicado--bebida h3").innerHTML; 
+    const nomeSobremesa = document.querySelector(".clicado--sobremesa h3").innerHTML; 
+
+    const precoPrato = document.querySelector(".clicado--prato .categoria__preco").innerHTML;
+    const precoBebida = document.querySelector(".clicado--bebida .categoria__preco").innerHTML;
+    const precoSobremesa = document.querySelector(".clicado--sobremesa .categoria__preco").innerHTML;
+    const precoTotal = calcularTotal(precoPrato,precoBebida,precoSobremesa);
+
+    let URI = `Olá, gostaria de fazer o pedido:\r\n- Prato: ${nomePrato}\r\n- Bebida: ${nomeBebida}\r\n- Sobremesa: ${nomeSobremesa}\r\nTotal: R$${precoTotal}`;
+    URI = encodeURIComponent(URI);
+
+    window.open(`https://wa.me/?text=${URI}`);
+}
+
+function calcularTotal(preco1,preco2,preco3) {
+    preco1 = Number(preco1.replace(/[^0-9.-]+/g,""));
+    preco2 = Number(preco2.replace(/[^0-9.-]+/g,""));
+    preco3 = Number(preco3.replace(/[^0-9.-]+/g,""));
+
+    return (preco1 + preco2 + preco3).toFixed(2);
+}
