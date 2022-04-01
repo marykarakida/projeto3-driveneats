@@ -45,18 +45,25 @@
     padding: 16px 26px;
     background-color: #ffffff;
   }
-  .barra-inferior button {
+  .botao {
+    border: none;
     border-radius: 50px;
     padding: 8px 0;
+    height: 60px;
     width: 100%;
     background-color: #cbcbcb;
     font-family: "Robot", sans-serif;
     font-style: normal;
+    font-weight: 400;
     font-size: 20px;
     line-height: 23px;
     text-align: center;
     letter-spacing: 0.018em;
     color: #ffffff;
+  }
+  .botao--ativo {
+    background-color: #32B72F;
+    font-weight: 700;
   }
   
   .conteudo {

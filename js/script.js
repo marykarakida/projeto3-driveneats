@@ -8,6 +8,8 @@ function escolherPrato (pratoClicado) {
     pratoClicado.classList.add("clicado--prato");
     const iconeClicado = document.querySelector(".clicado--prato ion-icon"); 
     iconeClicado.classList.add("checkmark--prato");
+
+    HabilitarConfirmacao ()
 }
 
 function escolherBebida (bebidaClicado) {
@@ -20,6 +22,8 @@ function escolherBebida (bebidaClicado) {
     bebidaClicado.classList.add("clicado--bebida");
     const iconeClicado = document.querySelector(".clicado--bebida ion-icon"); 
     iconeClicado.classList.add("checkmark--bebida");
+
+    HabilitarConfirmacao ()
 }
 
 function escolherSobremesa (sobremesaClicado) {
@@ -32,4 +36,21 @@ function escolherSobremesa (sobremesaClicado) {
     sobremesaClicado.classList.add("clicado--sobremesa");
     const iconeClicado = document.querySelector(".clicado--sobremesa ion-icon"); 
     iconeClicado.classList.add("checkmark--sobremesa");
+
+    HabilitarConfirmacao ()
 }
+
+function HabilitarConfirmacao () {
+    const prato = document.querySelector(".clicado--prato"); 
+    const bebida = document.querySelector(".clicado--bebida"); 
+    const sobremesa = document.querySelector(".clicado--sobremesa"); 
+    const botao = document.querySelector(".barra-inferior button"); 
+
+    if (prato !== null && bebida !== null && sobremesa !== null) {
+        botao.classList.add("botao--ativo");
+        botao.innerHTML = "Fechar pedido";
+    } else {
+        botao.classList.remove("botao--ativo");
+    }
+}
+
