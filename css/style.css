@@ -8,6 +8,11 @@
   
     background-color: #e5e5e5;
   }
+  ion-icon {
+    display: none;
+    font-size: 16px;
+    color: #32B72F;
+  }
   
   .mobile-layout {
     width: 100%;
@@ -118,5 +123,49 @@
     font-size: 16px;
     line-height: 19px;
     color: #000000;
+  }
+  .categoria__opcao > div:nth-child(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .clicado--prato,
+  .clicado--bebida,
+  .clicado--sobremesa {
+    border: 5px solid green;
+  }
+  .checkmark--prato,
+  .checkmark--bebida,
+  .checkmark--sobremesa {
+    display: initial;
+  }
+
+  .fundo-branco {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.9);
+  }
+  .tela-confirmacao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 380px;
+    width: 100%;
+    max-width: 400px;
+    background-color: #50D074;
+  }
+  .tela-confirmacao div {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+  }
+  .pedido-final {
+    display: none;
   }
   
