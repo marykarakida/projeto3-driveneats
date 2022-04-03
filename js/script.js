@@ -55,25 +55,47 @@ function HabilitarConfirmacao () {
 }
 
 function confirmarPedido () {
-    const nomePrato = document.querySelector(".clicado--prato h3").innerHTML; 
-    const nomeBebida = document.querySelector(".clicado--bebida h3").innerHTML; 
-    const nomeSobremesa = document.querySelector(".clicado--sobremesa h3").innerHTML; 
+    const telaPedido = document.querySelector(".fundo-branco"); 
+    telaPedido.classList.remove("pedido-final"); 
 
-    const precoPrato = document.querySelector(".clicado--prato .categoria__preco").innerHTML;
-    const precoBebida = document.querySelector(".clicado--bebida .categoria__preco").innerHTML;
-    const precoSobremesa = document.querySelector(".clicado--sobremesa .categoria__preco").innerHTML;
-    const precoTotal = calcularTotal(precoPrato,precoBebida,precoSobremesa);
+    document.querySelector("h3.primeiro").innerHTML = document.querySelector(".clicado--prato h3").innerHTML; 
+    document.querySelector("h3.segundo").innerHTML = document.querySelector(".clicado--bebida h3").innerHTML; 
+    document.querySelector("h3.terceiro").innerHTML = document.querySelector(".clicado--sobremesa h3").innerHTML; 
 
-    let URI = `Olá, gostaria de fazer o pedido:\r\n- Prato: ${nomePrato}\r\n- Bebida: ${nomeBebida}\r\n- Sobremesa: ${nomeSobremesa}\r\nTotal: R$${precoTotal}`;
-    URI = encodeURIComponent(URI);
+    document.querySelector("p.primeiro").innerHTML = document.querySelector(".clicado--prato .categoria__preco").innerHTML;
+    document.querySelector("p.segundo").innerHTML = document.querySelector(".clicado--bebida .categoria__preco").innerHTML;
+    document.querySelector("p.terceiro").innerHTML = document.querySelector(".clicado--sobremesa .categoria__preco").innerHTML;
 
-    window.open(`https://wa.me/?text=${URI}`);
+    const precoTotal = calcularTotal();
+    document.querySelector("p.total").innerHTML = `R$ ${precoTotal}`; 
 }
 
-function calcularTotal(preco1,preco2,preco3) {
-    preco1 = Number(preco1.replace(/[^0-9.-]+/g,""));
-    preco2 = Number(preco2.replace(/[^0-9.-]+/g,""));
-    preco3 = Number(preco3.replace(/[^0-9.-]+/g,""));
+function calcularTotal() {
+    let precoPrato = document.querySelector(".clicado--prato .categoria__preco").innerHTML;
+    let precoBebida = document.querySelector(".clicado--bebida .categoria__preco").innerHTML;
+    let precoSobremesa = document.querySelector(".clicado--sobremesa .categoria__preco").innerHTML;
+    precoPrato = Number(precoPrato.replace(/[^0-9.-]+/g,""));
+    precoBebida = Number(precoBebida.replace(/[^0-9.-]+/g,""));
+    precoSobremesa = Number(precoSobremesa.replace(/[^0-9.-]+/g,""));
 
-    return (preco1 + preco2 + preco3).toFixed(2);
+    return (precoPrato + precoBebida + precoSobremesa).toFixed(2);
+}
+
+function confirmarPedidoAgain () {
+    const nomePrato = document.querySelector("h3.primeiro").innerHTML; 
+    const nomeBebida = document.querySelector("h3.segundo").innerHTML; 
+    const nomeSobremesa = document.querySelector("h3.terceiro").innerHTML; 
+    const precoTotal = document.querySelector("p.total").innerHTML;
+
+    const nome = prompt("Qual é o seu nome?");
+    const endereco = prompt("Qual é o seu endereço?");
+
+    let URI = `Olá, gostaria de fazer o pedido:\r\n- Prato: ${nomePrato}\r\n- Bebida: ${nomeBebida}\r\n- Sobremesa: ${nomeSobremesa}\r\nTotal: R$${precoTotal}\r\n\r\nNome: ${nome}\r\nEndereço: ${endereco}`;
+    URI = encodeURIComponent(URI);
+    window.open(`https://wa.me/5511939053423?text=${URI}`);
+}
+
+function cancelarPedido () {
+    const telaPedido = document.querySelector(".fundo-branco"); 
+    telaPedido.classList.add("pedido-final"); 
 }

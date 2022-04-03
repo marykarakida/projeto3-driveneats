@@ -1,178 +1,228 @@
 * {
     box-sizing: border-box;
-  }
-  body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    background-color: #e5e5e5;
-  }
-  ion-icon {
-    display: none;
-    font-size: 16px;
-    color: #32B72F;
-  }
-  
-  .mobile-layout {
-    width: 100%;
-    max-width: 768px;
-  }
-  
-  .barra-topo {
-    position: fixed;
-    top: 0;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding: 8px 20px 18px;
-    background-color: #cf2b2b;
-    font-family: "Righteous", cursive;
-    font-style: normal;
-    color: #ffffff;
-  }
-  .barra-topo__restaurante {
-    font-size: 44px;
-    line-height: 55px;
-    letter-spacing: -0.012em;
-  }
-  .barra-topo__lema {
-    font-size: 18px;
-    line-height: 21px;
-  }
-  
-  .barra-inferior {
-    position: fixed;
-    bottom: 0;
-    padding: 16px 26px;
-    background-color: #ffffff;
-  }
-  .botao {
-    border: none;
-    border-radius: 50px;
-    padding: 8px 0;
-    height: 60px;
-    width: 100%;
-    background-color: #cbcbcb;
-    font-family: "Robot", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23px;
-    text-align: center;
-    letter-spacing: 0.018em;
-    color: #ffffff;
-  }
-  .botao--ativo {
-    background-color: #32B72F;
-    font-weight: 700;
-  }
-  
-  .conteudo {
-    margin: 100px 0;
-  }
-  .categoria {
-    margin: 28px 0;
-  }
-  .categoria__titulo {
-    padding: 0 18px 18px;
-    font-family: "Righteous";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 26px;
-    line-height: 32px;
-    letter-spacing: 0.018em;
-    color: #333333;
-  }
-  .categoria__opcoes {
-    display: flex;
-    padding: 0 9px;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    overflow-x: scroll;
-    -ms-overflow-style: none;
-    scrollbar-width: none; 
-  }
-  .categoria__opcoes::-webkit-scrollbar {
-    display: none;
-  }
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  .categoria__opcao {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
-    margin: 0 9px;
-    border-radius: 9px;
-    padding: 18px 14px 14px;
-    width: 172px;
-    background-color: #ffffff;
-  }
-  .categoria__img {
-    border-radius: 4px;
-    height: 87px;
-    width: 144px;
-  }
-  .categoria__comida {
-    margin: 6px 0;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 19px;
-    color: #333333;
-  }
-  .categoria__descricao {
-    margin: 8px 0;
-    font-weight: 300;
-    font-size: 15px;
-    line-height: 18px;
-    color: #a6a6a6;
-  }
-  .categoria__preco {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: #000000;
-  }
-  .categoria__opcao > div:nth-child(2) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  background-color: #e5e5e5;
+}
+ion-icon {
+  display: none;
+  font-size: 16px;
+  color: #32B72F;
+}
 
-  .clicado--prato,
-  .clicado--bebida,
-  .clicado--sobremesa {
-    border: 5px solid green;
-  }
-  .checkmark--prato,
-  .checkmark--bebida,
-  .checkmark--sobremesa {
-    display: initial;
-  }
+.mobile-layout {
+  width: 100%;
+  max-width: 768px;
+}
 
-  .fundo-branco {
-    z-index: 1;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  .tela-confirmacao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 380px;
-    width: 100%;
-    max-width: 400px;
-    background-color: #50D074;
-  }
-  .tela-confirmacao div {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    width: 100%;
-  }
-  .pedido-final {
-    display: none;
-  }
-  
+.barra-topo {
+  position: fixed;
+  top: 0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 8px 20px 18px;
+  background-color: #cf2b2b;
+  font-family: "Righteous", cursive;
+  font-style: normal;
+  color: #ffffff;
+}
+.barra-topo__restaurante {
+  font-size: 44px;
+  line-height: 55px;
+  letter-spacing: -0.012em;
+}
+.barra-topo__lema {
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.barra-inferior {
+  position: fixed;
+  bottom: 0;
+  padding: 16px 26px;
+  background-color: #ffffff;
+}
+.botao {
+  border: none;
+  border-radius: 50px;
+  padding: 8px 0;
+  height: 60px;
+  width: 100%;
+  background-color: #cbcbcb;
+  font-family: "Robot", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  letter-spacing: 0.018em;
+  color: #ffffff;
+}
+.botao--ativo {
+  background-color: #32B72F;
+  font-weight: 700;
+}
+
+.conteudo {
+  margin: 100px 0;
+}
+.categoria {
+  margin: 28px 0;
+}
+.categoria__titulo {
+  padding: 0 18px 18px;
+  font-family: "Righteous";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0.018em;
+  color: #333333;
+}
+.categoria__opcoes {
+  display: flex;
+  padding: 0 9px;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+.categoria__opcoes::-webkit-scrollbar {
+  display: none;
+}
+
+.categoria__opcao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.25);
+  margin: 0 9px;
+  border-radius: 9px;
+  padding: 18px 14px 14px;
+  width: 172px;
+  background-color: #ffffff;
+}
+.categoria__img {
+  border-radius: 4px;
+  height: 87px;
+  width: 144px;
+}
+.categoria__comida {
+  margin: 6px 0;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+}
+.categoria__descricao {
+  margin: 8px 0;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 18px;
+  color: #a6a6a6;
+}
+.categoria__preco {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+.categoria__opcao > div:nth-child(2) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clicado--prato,
+.clicado--bebida,
+.clicado--sobremesa {
+  border: 5px solid green;
+}
+.checkmark--prato,
+.checkmark--bebida,
+.checkmark--sobremesa {
+  display: initial;
+}
+
+.fundo-branco {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.tela-confirmacao {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  padding: 20px;
+  margin: 10px;
+  height: 100%;
+  max-height: 380px;
+  width: 100%;
+  max-width: 400px;
+  background-color: #50D074;
+  font-family: 'Roboto';
+  font-style: normal;
+}
+.tela-confirmacao div {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.tela-confirmacao h4 {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+h3,
+p {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.018em;
+  color: #FFFFFF;
+} 
+.total {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.018em;
+  color: #FFFFFF;
+}
+.tela-confirmacao button:nth-of-type(1){
+  border: none;
+  height: 52px;
+  width: 100%;
+  border-radius: 100px;
+  background-color: #FFFFFF;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 0.018em;
+  color: #50D074;
+}
+.tela-confirmacao button:nth-of-type(2){
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.018em;
+  color: #FFFFFF;
+}
+
+
+.pedido-final {
+  display: none;
+} 
