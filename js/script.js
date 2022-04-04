@@ -74,9 +74,9 @@ function calcularTotal() {
     let precoPrato = document.querySelector(".clicado--prato .categoria__preco").innerHTML;
     let precoBebida = document.querySelector(".clicado--bebida .categoria__preco").innerHTML;
     let precoSobremesa = document.querySelector(".clicado--sobremesa .categoria__preco").innerHTML;
-    precoPrato = Number(precoPrato.replace(/[^0-9.-]+/g,""));
-    precoBebida = Number(precoBebida.replace(/[^0-9.-]+/g,""));
-    precoSobremesa = Number(precoSobremesa.replace(/[^0-9.-]+/g,""));
+    precoPrato = Number(precoPrato.replace("R","").replace("$","").replace(",","."));
+    precoBebida = Number(precoBebida.replace("R","").replace("$","").replace(",","."));
+    precoSobremesa = Number(precoSobremesa.replace("R","").replace("$","").replace(",","."));
 
     return (precoPrato + precoBebida + precoSobremesa).toFixed(2);
 }
@@ -90,9 +90,13 @@ function confirmarPedidoAgain () {
     const nome = prompt("Qual é o seu nome?");
     const endereco = prompt("Qual é o seu endereço?");
 
-    let URI = `Olá, gostaria de fazer o pedido:\r\n- Prato: ${nomePrato}\r\n- Bebida: ${nomeBebida}\r\n- Sobremesa: ${nomeSobremesa}\r\nTotal: R$${precoTotal}\r\n\r\nNome: ${nome}\r\nEndereço: ${endereco}`;
-    URI = encodeURIComponent(URI);
-    window.open(`https://wa.me/5511939053423?text=${URI}`);
+    if (nome == null || nome == "" || endereco == null || endereco == "") {
+        alert("Pelo menos uma das perguntas não foi respondida. Por favor, clique novamente no botão para confirmar o pedido e responda as perguntas para prosseguir.")
+    } else {
+        let URI = `Olá, gostaria de fazer o pedido:\r\n- Prato: ${nomePrato}\r\n- Bebida: ${nomeBebida}\r\n- Sobremesa: ${nomeSobremesa}\r\nTotal: R$${precoTotal}\r\n\r\nNome: ${nome}\r\nEndereço: ${endereco}`;
+        URI = encodeURIComponent(URI);
+        window.open(`https://wa.me/5511939053423?text=${URI}`);
+    }
 }
 
 function cancelarPedido () {
